@@ -1,0 +1,28 @@
+Project Euler C++ Code
+Craig Cahillane - May 11, 2017
+
+This repo contains my solutions to Project Euler problems in C/C++ code.
+Project Euler is found here: https://projecteuler.net/
+
+A couple of notes:
+
+-> Problem_65.cpp must be compiled with the following additional flags:
+
+g++ -lgmpxx -lgmp Problem_65.cpp -o Problem_65
+
+This is because I introduced the GMP library which allows coding up effectively unlimited sized numbers.
+I.e. where the "int" type is limited to 16 bits, "long int" is 32 bits, and "long long int" is 64 bits, 
+the "mpz_class" is limited only by your computer memory.
+
+In order to use the GMP library, download it here: https://gmplib.org/
+Unzip the folder and change to the new directory to build GMP.
+Follow the instructions here for Unix based systems: https://gmplib.org/manual/Installing-GMP.html
+Make sure to use the flag --enable-cxx when you run ./configure, this enables C++ support:  
+
+./configure --enable-cxx
+make
+make check
+sudo make install
+
+Also be sure to compile with g++ and not gcc, this causes clang linker errors (facepalm)
+Now you should be able to include the linking flags -lgmp -lgmpxx with g++
